@@ -7,6 +7,10 @@ sudo apt-get -y install build-essential curl file git vim
 ### install Vundle - vim package manager
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+### get .vimrc and install plugins
+wget -O ~/.vimrc https://raw.githubusercontent.com/serhii-dolia/dotfiles/main/.vimrc
+vim +PluginInstall +qall
+
 ### move window buttons to the left
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
 
@@ -16,6 +20,8 @@ sudo snap install emacs --classic
 sudo snap install keepassxc
 sudo apt-get install tilix
 
+### get emacs dotfile
+wget -O ~/.emacs https://raw.githubusercontent.com/serhii-dolia/dotfiles/main/.emacs
 ### install vscode extensions
 
 code --install-extension vscode-icons-team.vscode-icons;
@@ -51,3 +57,4 @@ echo "[ -s \"\$NVM_DIR/bash_completion\" ] && \. \"\$NVM_DIR/bash_completion\"  
 ### remove energy-safe mode for wifi
 sudo sed -i 's/3/2/' '/etc/NetworkManager/conf.d/default-wifi-powersave-on.conf'
 sudo systemctl restart NetworkManager.service
+
